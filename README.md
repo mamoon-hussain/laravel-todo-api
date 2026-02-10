@@ -48,7 +48,6 @@ A simple Laravel-based API for managing tasks (create, read, update, delete, and
 6. **Start the server**:
    php artisan serve
 
-- Access the API at `http://localhost:8000`.
 - Use Swagger UI at `http://localhost:8000/api/docs`
 
 ## API Endpoints
