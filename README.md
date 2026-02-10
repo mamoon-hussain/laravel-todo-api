@@ -4,7 +4,7 @@ A simple Laravel-based API for managing tasks (create, read, update, delete, and
 
 ## Requirements
 
-- PHP 8.0.30 or higher
+- PHP 8.0.2 or higher (based on `composer.json` requiring ^8.0.2)
 - MySQL database
 - Composer (for dependencies)
 
@@ -29,6 +29,10 @@ A simple Laravel-based API for managing tasks (create, read, update, delete, and
   DB_DATABASE=todo_db
   DB_USERNAME=root
   DB_PASSWORD=  # Leave empty if no password, or set your MySQL root password
+  ```
+- Generate the application key:
+  ```
+  php artisan key:generate
   ```
   
 4. **Create the database**:
