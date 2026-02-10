@@ -4,14 +4,14 @@ A simple Laravel-based API for managing tasks (create, read, update, delete, and
 
 ## Requirements
 
-- PHP 8.0.2 or higher (based on `composer.json` requiring ^8.0.2)
+- PHP 8.0.2 or higher
 - MySQL database
-- Composer (for dependencies)
+- Composer
 
 ## Installation
 
 1. **Clone the repository**:
-   git clone https://github.com/yourusername/laravel-todo-api.git cd laravel-todo-api
+   git clone https://github.com/mamoon-hussain/laravel-todo-api.git cd laravel-todo-api
 
 2. **Install dependencies**:
    composer install
