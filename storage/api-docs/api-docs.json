@@ -19,38 +19,6 @@
         }
     ],
     "paths": {
-        "/app-info/about-us": {
-            "get": {
-                "tags": [
-                    "About"
-                ],
-                "summary": "About App & Contact info",
-                "operationId": "1848ad41a48c5a2d8e89b6baaaf3f948",
-                "parameters": [
-                    {
-                        "name": "Language",
-                        "in": "header",
-                        "description": "(en or ar) If left empty it is English",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Success response",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/AboutAppResult"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
         "/api/task/index": {
             "get": {
                 "tags": [
@@ -606,10 +574,6 @@
         }
     },
     "tags": [
-        {
-            "name": "About",
-            "description": "About"
-        },
         {
             "name": "Tasks",
             "description": "Tasks"
