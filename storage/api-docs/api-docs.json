@@ -1,0 +1,618 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Todo API Documentation",
+        "description": "L5 Swagger OpenAPI description for Todo API",
+        "contact": {
+            "email": "admin@example.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8000",
+            "description": "Local API Server"
+        }
+    ],
+    "paths": {
+        "/app-info/about-us": {
+            "get": {
+                "tags": [
+                    "About"
+                ],
+                "summary": "About App & Contact info",
+                "operationId": "1848ad41a48c5a2d8e89b6baaaf3f948",
+                "parameters": [
+                    {
+                        "name": "Language",
+                        "in": "header",
+                        "description": "(en or ar) If left empty it is English",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AboutAppResult"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/task/index": {
+            "get": {
+                "tags": [
+                    "Tasks"
+                ],
+                "summary": "tasks List",
+                "operationId": "f93cbd43ab941983036388dfa49aa8d1",
+                "parameters": [
+                    {
+                        "name": "pagesize",
+                        "in": "query",
+                        "description": "number of returned values",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "page number",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "search by title or description",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "search by Status (1 => pending, 2 => in_progress, 3 => completed, 4 => canceled)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TaskResult"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/task/details": {
+            "get": {
+                "tags": [
+                    "Tasks"
+                ],
+                "summary": "Task Details",
+                "operationId": "684ef8021e0d052cdb46ca37afb551d9",
+                "parameters": [
+                    {
+                        "name": "task_id",
+                        "in": "query",
+                        "description": "ID of task",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TaskApiResult"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/task/create": {
+            "post": {
+                "tags": [
+                    "Tasks"
+                ],
+                "summary": "Create New Task",
+                "operationId": "f165dbde8547eec6eed1ddf6def8b0ec",
+                "requestBody": {
+                    "description": "Create Task model",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateTaskApiModel"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "CreateTaskApiResult response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TaskApiResult"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/task/update": {
+            "put": {
+                "tags": [
+                    "Tasks"
+                ],
+                "summary": "Update Task",
+                "operationId": "72b53182b84e81cce9765f2c2a704675",
+                "requestBody": {
+                    "description": "Create Task model",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateTaskApiModel"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "UpdateTaskApiResult response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TaskApiResult"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/task/delete": {
+            "delete": {
+                "tags": [
+                    "Tasks"
+                ],
+                "summary": "Delete Task",
+                "operationId": "dbc8929140fda60bc36b1fa49df75aa2",
+                "parameters": [
+                    {
+                        "name": "task_id",
+                        "in": "query",
+                        "description": "ID of task",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResult"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "AboutApp": {
+                "title": "AboutApp model",
+                "description": "AboutApp model",
+                "properties": {
+                    "description": {
+                        "title": "description",
+                        "description": "Description",
+                        "type": "string"
+                    },
+                    "location": {
+                        "title": "location",
+                        "description": "Location",
+                        "type": "string"
+                    },
+                    "phone": {
+                        "title": "phone",
+                        "description": "Phone",
+                        "type": "string"
+                    },
+                    "facebook": {
+                        "title": "facebook",
+                        "description": "FaceBook",
+                        "type": "string"
+                    },
+                    "instagram": {
+                        "title": "instagram",
+                        "description": "Instagram",
+                        "type": "string"
+                    },
+                    "telegram": {
+                        "title": "telegram",
+                        "description": "Telegram",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "AboutAppResult": {
+                "title": "AboutAppResult model",
+                "description": "AboutAppResult model",
+                "properties": {
+                    "result": {
+                        "$ref": "#/components/schemas/AboutApp"
+                    },
+                    "isOk": {
+                        "title": "isOk",
+                        "description": "Indicates if the response is ok or not",
+                        "type": "boolean"
+                    },
+                    "message": {
+                        "$ref": "#/components/schemas/ApiMessage"
+                    }
+                },
+                "type": "object"
+            },
+            "ContactUs": {
+                "title": "ContactUs model",
+                "description": "ContactUs model",
+                "properties": {
+                    "location": {
+                        "title": "Location",
+                        "description": "Location Model"
+                    },
+                    "phone": {
+                        "title": "phone",
+                        "description": "phone",
+                        "type": "string"
+                    },
+                    "mobile": {
+                        "title": "mobile",
+                        "description": "mobile",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "ContactUsResult": {
+                "title": "AboutUsResult model",
+                "description": "AboutUsResult model",
+                "properties": {
+                    "result": {
+                        "$ref": "#/components/schemas/ContactUs"
+                    },
+                    "isOk": {
+                        "title": "isOk",
+                        "description": "Indicates if the response is ok or not",
+                        "type": "boolean"
+                    },
+                    "message": {
+                        "$ref": "#/components/schemas/ApiMessage"
+                    }
+                },
+                "type": "object"
+            },
+            "ApiMessage": {
+                "title": "ApiMessage model",
+                "description": "ApiMessage model",
+                "properties": {
+                    "type": {
+                        "title": "type",
+                        "description": "Message type",
+                        "type": "string"
+                    },
+                    "code": {
+                        "title": "code",
+                        "description": "Message code",
+                        "type": "number"
+                    },
+                    "content": {
+                        "title": "content",
+                        "description": "Message content",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "ApiResult": {
+                "title": "ApiResult model",
+                "description": "ApiResult model",
+                "properties": {
+                    "isOk": {
+                        "title": "isOk",
+                        "description": "Indicates if the response is ok or not",
+                        "type": "boolean"
+                    },
+                    "message": {
+                        "$ref": "#/components/schemas/ApiMessage"
+                    },
+                    "exception": {
+                        "title": "exception",
+                        "description": "Exception Message",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "IdValueApiModel": {
+                "title": "IdValueApiModel model",
+                "description": "IdValueApiModel model",
+                "properties": {
+                    "id": {
+                        "title": "id",
+                        "description": "ID",
+                        "type": "integer"
+                    },
+                    "value": {
+                        "title": "value",
+                        "description": "Value",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "CreateTaskApiModel": {
+                "title": "CreateTaskModel model",
+                "description": "CreateTaskModel model",
+                "properties": {
+                    "title": {
+                        "title": "title",
+                        "description": "title",
+                        "type": "string"
+                    },
+                    "description": {
+                        "title": "description",
+                        "description": "description",
+                        "type": "string"
+                    },
+                    "status": {
+                        "title": "status",
+                        "description": "Status",
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            },
+            "CreateTaskApiResult": {
+                "title": "CreateTaskApiResult model",
+                "description": "CreateTaskApiResult model",
+                "properties": {
+                    "result": {
+                        "$ref": "#/components/schemas/CreateTaskApiModel"
+                    },
+                    "isOk": {
+                        "title": "isOk",
+                        "description": "Indicates if the response is ok or not",
+                        "type": "boolean"
+                    },
+                    "message": {
+                        "$ref": "#/components/schemas/ApiMessage"
+                    }
+                },
+                "type": "object"
+            },
+            "TaskApiModel": {
+                "title": "TaskApiModel model",
+                "description": "TaskApiModel model",
+                "properties": {
+                    "id": {
+                        "title": "id",
+                        "description": "ID",
+                        "type": "integer"
+                    },
+                    "title": {
+                        "title": "title",
+                        "description": "title",
+                        "type": "string"
+                    },
+                    "description": {
+                        "title": "description",
+                        "description": "description",
+                        "type": "string"
+                    },
+                    "status": {
+                        "$ref": "#/components/schemas/IdValueApiModel"
+                    }
+                },
+                "type": "object"
+            },
+            "TaskApiResult": {
+                "title": "TaskApiResult model",
+                "description": "TaskApiResult model",
+                "properties": {
+                    "result": {
+                        "title": "result",
+                        "description": "TaskApiModel Result Model",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/TaskApiModel"
+                        }
+                    },
+                    "isOk": {
+                        "title": "isOk",
+                        "description": "Indicates if the response is ok or not",
+                        "type": "boolean"
+                    },
+                    "message": {
+                        "$ref": "#/components/schemas/ApiMessage"
+                    }
+                },
+                "type": "object"
+            },
+            "TaskResult": {
+                "title": "TaskResult model",
+                "description": "TaskResult model",
+                "properties": {
+                    "items_count": {
+                        "title": "items_count",
+                        "description": "items_count",
+                        "type": "integer"
+                    },
+                    "pages_count": {
+                        "title": "pagesCount",
+                        "description": "Pages count of list (by page size)",
+                        "type": "integer"
+                    },
+                    "result": {
+                        "title": "result",
+                        "description": "TaskApiModel Result Model",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/TaskApiModel"
+                        }
+                    },
+                    "isOk": {
+                        "title": "isOk",
+                        "description": "Indicates if the response is ok or not",
+                        "type": "boolean"
+                    },
+                    "message": {
+                        "$ref": "#/components/schemas/ApiMessage"
+                    }
+                },
+                "type": "object"
+            },
+            "TaskStatusApiModel": {
+                "title": "TaskStatusApiModel model",
+                "description": "TaskStatusApiModel model",
+                "properties": {
+                    "id": {
+                        "title": "id",
+                        "description": "ID",
+                        "type": "integer"
+                    },
+                    "name": {
+                        "title": "name",
+                        "description": "Name",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "TaskStatusResult": {
+                "title": "TaskStatusResult model",
+                "description": "TaskStatusResult model",
+                "properties": {
+                    "items_count": {
+                        "title": "items_count",
+                        "description": "items_count",
+                        "type": "integer"
+                    },
+                    "result": {
+                        "title": "result",
+                        "description": "TaskStatusApiModel Result Model",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/TaskStatusApiModel"
+                        }
+                    },
+                    "isOk": {
+                        "title": "isOk",
+                        "description": "Indicates if the response is ok or not",
+                        "type": "boolean"
+                    },
+                    "message": {
+                        "$ref": "#/components/schemas/ApiMessage"
+                    },
+                    "pagesCount": {
+                        "title": "pagesCount",
+                        "description": "Pages count of list (by page size)",
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            },
+            "UpdateTaskApiModel": {
+                "title": "UpdateTaskApiModel model",
+                "description": "UpdateTaskApiModel model",
+                "properties": {
+                    "id": {
+                        "title": "id",
+                        "description": "Task ID",
+                        "type": "integer"
+                    },
+                    "title": {
+                        "title": "title",
+                        "description": "Task title",
+                        "type": "string",
+                        "default": "",
+                        "example": "",
+                        "nullable": true
+                    },
+                    "description": {
+                        "title": "description",
+                        "description": "Task description",
+                        "type": "string",
+                        "default": "",
+                        "example": "",
+                        "nullable": true
+                    },
+                    "status": {
+                        "title": "status",
+                        "description": "Task Status: 1 => pending, 2 => in_progress, 3 => completed, 4 => canceled",
+                        "type": "integer",
+                        "default": "",
+                        "example": "",
+                        "nullable": true
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "About",
+            "description": "About"
+        },
+        {
+            "name": "Tasks",
+            "description": "Tasks"
+        }
+    ]
+}
