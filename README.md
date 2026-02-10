@@ -28,7 +28,7 @@ A simple Laravel-based API for managing tasks (create, read, update, delete, and
   DB_PORT=3306
   DB_DATABASE=todo_db
   DB_USERNAME=root
-  DB_PASSWORD=  # Leave empty if no password, or set your MySQL root password
+  DB_PASSWORD=
   ```
 - Generate the application key:
   ```
