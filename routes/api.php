@@ -32,22 +32,3 @@ Route::group(['prefix' => 'task'], function () {
     Route::delete('delete', [TaskController::class, 'delete']);
 });
 
-
-
-
-use Illuminate\Support\Facades\Hash;
-Route::get('test',function(){
-    $number=12345678;
-    $number1=12345678;
-    $n1=Hash::make ($number1);
-    $n2=Hash::make ($number);
-    // return "$n1 <br> $number <br> $n2 <br> $number1";
-    if(Hash::check($number1,$n1))
-    {
-    return Hash::check($number1,$n1);
-    }
-    else{
-        return " ya hamdi";
-    }
-});
-
