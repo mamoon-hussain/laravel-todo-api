@@ -11,16 +11,16 @@ A simple Laravel-based API for managing tasks (create, read, update, delete, and
 ## Installation
 
 1. **Clone the repository**:
-  ```
-  git clone https://github.com/mamoon-hussain/laravel-todo-api.git
-  cd laravel-todo-api
-  ```
+   ```
+   git clone https://github.com/mamoon-hussain/laravel-todo-api.git
+   cd laravel-todo-api
+   ```
    
 
 2. **Install dependencies**:
-  ```
-  composer install
-  ```
+   ```
+   composer install
+   ```
 
 3. **Set up the environment**:
 - Copy `.env.example` to `.env`:
