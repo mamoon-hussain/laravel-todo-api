@@ -12,7 +12,8 @@ A simple Laravel-based API for managing tasks (create, read, update, delete, and
 
 1. **Clone the repository**:
   ```
-  git clone https://github.com/mamoon-hussain/laravel-todo-api.git cd laravel-todo-api
+  git clone https://github.com/mamoon-hussain/laravel-todo-api.git
+  cd laravel-todo-api
   ```
    
 
