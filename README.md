@@ -14,21 +14,21 @@ A simple Laravel-based API for managing tasks (create, read, update, delete, and
    ```
    git clone https://github.com/mamoon-hussain/laravel-todo-api.git
    cd laravel-todo-api
-   ```
+  ```
    
 
 2. **Install dependencies**:
-   ```
-   composer install
-   ```
+  ```
+  composer install
+  ```
 
 3. **Set up the environment**:
--  Copy `.env.example` to `.env`:
-   ```
-   cp .env.example .env
-   ```
--  Edit `.env` and configure your database:
-   ```
+- Copy `.env.example` to `.env`:
+  ```
+  cp .env.example .env
+  ```
+- Edit `.env` and configure your database:
+  ```
   DB_CONNECTION=mysql
   DB_HOST=127.0.0.1
   DB_PORT=3306
@@ -42,10 +42,10 @@ A simple Laravel-based API for managing tasks (create, read, update, delete, and
   ```
   
 4. **Create the database**:
--  In MySQL, create a database named `todo_db`:
-   ```
-   CREATE DATABASE todo_db;
-   ```
+- In MySQL, create a database named `todo_db`:
+  ```
+  CREATE DATABASE todo_db;
+  ```
 - Grant permissions to the `root` user if needed (e.g., `GRANT ALL PRIVILEGES ON todo_db.* TO 'root'@'localhost';`).
 
 5. **Run migrations**:
