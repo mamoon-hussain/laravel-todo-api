@@ -11,10 +11,15 @@ A simple Laravel-based API for managing tasks (create, read, update, delete, and
 ## Installation
 
 1. **Clone the repository**:
-   git clone https://github.com/mamoon-hussain/laravel-todo-api.git cd laravel-todo-api
+  ```
+  git clone https://github.com/mamoon-hussain/laravel-todo-api.git cd laravel-todo-api
+  ```
+   
 
 2. **Install dependencies**:
-   composer install
+  ```
+  composer install
+  ```
 
 3. **Set up the environment**:
 - Copy `.env.example` to `.env`:
@@ -43,10 +48,15 @@ A simple Laravel-based API for managing tasks (create, read, update, delete, and
 - Grant permissions to the `root` user if needed (e.g., `GRANT ALL PRIVILEGES ON todo_db.* TO 'root'@'localhost';`).
 
 5. **Run migrations**:
+   ```
    php artisan migrate
+   ```
 
 6. **Start the server**:
-   php artisan serve
+  ```
+  php artisan serve
+  ```
+   
 
 - Use Swagger UI at `http://localhost:8000/api/docs`
 
