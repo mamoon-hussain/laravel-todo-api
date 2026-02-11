@@ -64,10 +64,10 @@ A simple Laravel-based API for managing tasks (create, read, update, delete, and
 ## API Endpoints
 
 - `GET /api/task/index` - List tasks (with pagination, search, and status filter)
-- `GET /api/task/details?task_id=1` - Get task details
+- `GET /api/task/details?task_id=$id` - Get task details
 - `POST /api/task/create` - Create a new task
-- `PUT /api/task/update` - Update a task
-- `DELETE /api/task/delete?task_id=1` - Delete a task
+- `PUT /api/task/update?task_id=$id` - Update a task
+- `DELETE /api/task/delete?task_id=$id` - Delete a task
 
 ## Notes
 
